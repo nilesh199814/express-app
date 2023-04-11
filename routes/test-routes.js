@@ -21,7 +21,7 @@ router.get("/test", (req, res) => {
 // short hand for same method
 router.get("/test/v2", testMethods.test);
 
-// validation for payload 
+// validation for payload
 const loginValidation = {
   body: Joi.object({
     email: Joi.string().email().required(),
@@ -30,15 +30,17 @@ const loginValidation = {
       .required(),
   }),
 };
-// 
-/* router.use(function(err, req, res, next) {
-    if (err instanceof ValidationError) {
-      return res.status(err.statusCode).json(err)
-    }
-  
-    return res.status(500).json(err)
-  })
- */
+//
 
 router.post("/login", validate(loginValidation, {}, {}), testMethods.login);
+
+// testing public key
+router.post("/public-login", testMethods.publicLogin);
+
+// testing event 
+router.get("/testing-event", testMethods.testEvent);
+
+// testing file 
+router.post("/testing-file", testMethods.testFile);
+
 module.exports = router;
