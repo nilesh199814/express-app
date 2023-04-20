@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "pm2": "pm2 start app.js -i max",
+    "pm2-delete": "pm2 delete app.js"
   },
   "author": "Nilesh",
   "license": "ISC",
